@@ -1,0 +1,142 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int numOfTurns = 5;
+int mult = 2345;
+int randum(){
+    int init = 7654;
+    mult += 27;
+    int randInt;
+    double randDouble;
+    randDouble = sin(init+mult)*sin(init+mult)*50;
+    randInt = (int) randDouble;
+    return randInt;
+}
+
+class snakeClass{
+    public:
+        int size = 5;
+        char* snake[];
+        int incraeseSize(){
+            size++;
+            return size;
+        }
+        
+        void buildSnake(){
+            for (int i=0; i<5; i++){
+                if (i == 0)
+                    snake[i] = "o";
+                else    snake[i] = "#";
+            }
+        }
+        
+        void growsnake(){
+            for (int i=5;i<size;i++)
+                snake[i] = "#";
+        }
+        
+        void killSnake(){
+            for (int i=size; i>5; i--){
+                snake[i] = NULL;
+            }
+        } 
+} snakeBody;
+
+
+class apple{
+    public:
+    int applePlace = 0;
+    int creatApple(){
+        char* apple[randum()+1];
+        for (int i=0; i<randum(); i++){
+            char apple[i] = " ";
+            applePlace++;
+        }
+        apple[randum()+1] = "*";
+        return applePlace;
+    }
+    
+    int findApple(){
+    return creatApple();
+    }
+} apples;
+
+int main()
+{
+    for (int i=0;i<numOfTurns;i++){
+        cout << apples.findApple() << endl;
+    }
+    return 0;
+}
+
+On Wed, Feb 21, 2018 at 3:38 PM, Majd Zayyad <majdzayyad@gmail.com> wrote:
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int numOfTurns = 5;
+int mult = 2345;
+int randum(){
+    int init = 7654;
+    mult += 27;
+    int randInt;
+    double randDouble;
+    randDouble = sin(init+mult)*sin(init+mult)*50;
+    randInt = (int) randDouble;
+    return randInt;
+}
+
+class snakeBody{
+    public:
+        int size = 5;
+        char snake[size];
+        int incraeseSize(){
+            size++;
+            return size;
+        }
+        
+        char buildSnake(){
+            for (int i=0; i<5; i++){
+                if (i == 0)
+                    snake[i] = "o";
+                else    snake[i] = "#";
+            }
+            return snake;
+        }
+        
+        char growsnake(){
+            snake[size] = "#";
+            return snake;
+        }
+        
+        char killSnake(){
+            for (int i=size; i>5; i--){
+                snake[i] = NULL;
+            }
+            return snake;
+        } 
+}
+
+class apple{
+    char createApple(){
+        return "*"
+    }
+
+    char placeApple(){
+        
+    }
+    
+    int findApple(){
+        
+    }
+}
+
+int main()
+{
+    for (int i=0;i<numOfTurns;i++){
+        int prnt = randum();
+        cout<<prnt<<endl;
+    }
+    return 0;
+}
